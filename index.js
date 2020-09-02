@@ -1,17 +1,18 @@
-//document.addEventListener('DOMContentLoaded', ()=> alert('hi'))
-expenseList = document.getElementById('expense-list')
+const budgetForm = document.getElementById("budget-form");
+const budgetsAdapter = new BudgetsAdapter
+const categoriesAdapter = new CategoriesAdapter
 
-function fetchExpenses(){
-    fetch('http://127.0.0.1:3000/expenses')
-    .then(res => res.json())
-    .then(addExpensesToDom)
+
+function hideBtnLoadForm(e){
+  e.target.hidden = true
+  const newForm = document.getElementById('new-form-container')
+  newForm.hidden = false
 }
 
-function addExpensesToDom(response){
-    debugger
-    response.data.forEach( item => {
-        addItemToDom(item)
-         })
-}
-
-fetchExpenses()
+document.addEventListener('DOMContentLoaded', () => {
+  categoriesAdapter.fetchCategories()
+  budgetsAdapter.fetchBudgets()
+  budgetForm.addEventListener('submit', budgetsAdapter.createBudget)
+  const newFormBtn = document.getElementById('new-form-btn')
+  newFormBtn.addEventListener('click', hideBtnLoadForm)
+})
