@@ -2,14 +2,50 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Budget Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <h1>Budget Calculator</h1>
-        <script src="src/task.js"></script>
-        <script src="index.js"></script>
+        <p>Click on the category name (expense or income) to add your budget to the appropriate list.</p>
+
+              <button id="new-form-btn">Add Budget</button>
+              <div id="new-form-container" hidden="true">
+        <form id="budget-form">
+            <label for="description">Description</label>
+            <input
+                type="text"
+                name="description"
+                id="budget-description"
+                placeholder="Enter text..."/><br><br>
+            <label for="amount">Amount(+/-)</label>
+            <input
+                type="number"
+                name="amount"
+                id="budget-amount"
+                placeholder="Enter value..."/><br><br>
+            <input type="submit" value="Create">
+        </form>
+
+      <div class="row">
+        <div class="column">
+            <h2>Categories:</h2>
+            <ul id="category-list">
+            </ul>
+        </div>
+        <div class="column">
+            <h2>All budgets:</h2>
+            <ul id="list"></ul>
+            </ul>
+        </div>
+    </div>
+
+       <script src="src/category.js" type="text/javascript"></script>
+        <script src="src/categoriesAdapter.js" type="text/javascript"></script>
+        <script src="src/budget.js" type="text/javascript"></script>
+        <script src="src/budgetsAdapter.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
     </body>
 </html>
