@@ -2,6 +2,10 @@ class BudgetsAdapter{
     constructor() {
         this.baseUrl = 'http://localhost:3000/budgets'
     }
+
+    //Sort Fuction
+
+
     // INDEX
     fetchBudgets(){
         fetch(this.baseUrl)

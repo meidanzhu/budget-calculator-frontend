@@ -31,10 +31,21 @@ class Category{
 
     }
     displayItems = () => {
+        const sortBtn = document.getElementById('sort-btn')
+        sortBtn.addEventListener('click', this.displaySortedItems)
+
         document.getElementById('list').innerHTML =``
         this.budgets().forEach((d)=>{
             d.attachToDom()
         })
-
     }
+
+    displaySortedItems = () => {
+        document.getElementById('list').innerHTML =``
+        this.budgets().sort((a,b) => (a.amount - b.amount)).forEach((d)=>{
+            d.attachToDom()
+        })
+    }
+
+    
 }
