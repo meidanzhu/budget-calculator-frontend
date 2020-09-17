@@ -10,10 +10,14 @@ class Budget {
 
         this.element = document.createElement('div')
         this.element.id = `budget-${this.id}`
+        // this.searchMap = new Map()
 
         Budget.all.push(this)
     }
 
+    get searchMap(){
+        return this.searchMap
+    }
     get category(){
         return Category.all.find((cat) => cat.id == this.category_id)
     }
@@ -88,4 +92,9 @@ class Budget {
         formDiv.innerHTML = updateForm
         budget.element.querySelector('li').append(formDiv)
     }
+    // searchBar(input){
+    //     input = 
+    //     this.searchMap[this.amount] = ''
+    //     this.searchMap[this.description] = ''
+    // }
 }

@@ -33,6 +33,8 @@ class Category{
     displayItems = () => {
         const sortBtn = document.getElementById('sort-btn')
         sortBtn.addEventListener('click', this.displaySortedItems)
+        // const searchBtn = document.getElementById('searchBtn')
+        // searchBtn.addEventListener('', this.displaySearchItems)
 
         document.getElementById('list').innerHTML =``
         this.budgets().forEach((d)=>{
@@ -46,6 +48,15 @@ class Category{
             d.attachToDom()
         })
     }
+
+    
+    
+    // displaySearchItems = () => {
+    //     document.getElementById('list').innerHTML =``
+    //     this.budgets().filter.forEach((d)=>{
+    //         d.attachToDom()
+    //     })
+    // }
 
     
 }
