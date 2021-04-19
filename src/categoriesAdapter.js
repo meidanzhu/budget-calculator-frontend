@@ -1,22 +1,21 @@
 class CategoriesAdapter{
     constructor(){
-        this.baseUrl = "http://localhost:3000/categories"
+        this.baseUrl = 'http://localhost:3000/categories'
     }
 
-    // GET
     fetchCategories(){
         fetch(this.baseUrl)
         .then(res => res.json())
-        .then(json => {
-            json.data.forEach((el)=>{
+        .then(response => {
+            // console.log(response)
+            response.data.forEach(el => {
                 this.sanitizeAndInitializeCategory(el)
             })
         })
-
     }
 
-    sanitizeAndInitializeCategory(resp){
-        let cat = new Category({id: resp.id, ...resp.attributes})
+    sanitizeAndInitializeCategory(data){
+        let cat = new Category({id: data.id, ...data.attributes})
         cat.attachToDom()
     }
 }
