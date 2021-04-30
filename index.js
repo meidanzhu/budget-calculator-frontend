@@ -49,16 +49,17 @@ searchBtn.addEventListener("click", processSearch)
 const processSearch = () => {
   document.body.innerHTML += ""
   let query = document.getElementById('search').value
+  document.body.innerHTML +=
+  `<div id="searchResult"></div>`
+  const div = document.getElementById('searchResult')
 
 //MAKE A FETCH REQUEST TO GET AND POST THE INPUT
-  fetch(`http://127.0.0.1:3000/items/search/${query}`)
-  .then(resp => resp.json())
-  .then(item => {
-    const div = ""
-    document.body.innerHTML +=
-
-    `<div id="searchResult">${item.name}</div>`
-  })
+    fetch(`http://127.0.0.1:3000/items/search/${query}`)
+    .then(resp => resp.json())
+    .then(item => {
+    div.innerText = `${item.name}`
+    })
+    
 //ERROR MESSAGE
   .catch(error => {
     const msg = {message: "Could not find search"}
