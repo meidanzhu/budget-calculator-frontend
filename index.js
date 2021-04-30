@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// create a search bar filtering through the name of the drinks, alpha from a-z
+// create a search bar filtering through the name of the drinks
 // in the index.html create the button and the form
 // grab the element and add an event listener 
 // create the function to filter/sort the data - manipulating the data
