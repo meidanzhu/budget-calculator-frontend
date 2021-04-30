@@ -31,27 +31,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //google each synx along the way.
 
-searchBtn.addEventListener('click', (e) =>{
-  const searchString = e.target.value.toLowerCase();
-
-  const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
-  
-  displayItems(filtered)
-})
-
-const displayItems = (items) => {
-  const htmlString = items.map((item) => {
-    return  `
-    <li class='item'>
-    $<span class="price">${item.price}</span>
-    <strong class="name">${item.name}</strong>:
-    <span class="description">${item.description}</span>
-    </li>
-    `;
-  })
-  .join('');
-  itemList.innerHTML = htmlString;
+// CREATE THE SEARCH FORM 
+const createSearchForm = () => {
+  const body = document.body
+    body.innerHTML +=
+  `   
+    <div id=”search-form”>
+    <input type=”text” id=”search” placeholder="Search Drink">
+    <button id="searchBtn">Search</button>
+</div>`
+    
+// GRAB THE BUTTON AND APPLY IT TO AN EVENT LISTENER
+let searchBtn = document.getElementById('searchBtn')
+searchBtn.addEventListener("click", processSearch)
 }
+
+//GET THE VALUE OF THE INPUT
+const processSearch = () => {
+  document.body.innerHTML += ""
+  let query = document.getElementById('search').value
+
+//MAKE A FETCH REQUEST TO GET AND POST THE INPUT
+  fetch(`http://127.0.0.1:3000/items/search/${query}`)
+  .then(resp => resp.json())
+  .then(item => {
+    const div = ""
+    document.body.innerHTML +=
+
+    `<div id="searchResult">${item.name}</div>`
+  })
+//ERROR MESSAGE
+  .catch(error => {
+    const msg = {message: "Could not find search"}
+    document.body.innerHTML += `${msg.message}`
+  })
+}
+
+
+//OPTION 2
+
+// searchBtn.addEventListener('click', (e) =>{
+//   const searchString = e.target.value.toLowerCase();
+
+//   const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
+  
+//   displayItems(filtered)
+// })
+
+// const displayItems = (items) => {
+//   const htmlString = items.map((item) => {
+//     return  `
+//     <li class='item'>
+//     $<span class="price">${item.price}</span>
+//     <strong class="name">${item.name}</strong>:
+//     <span class="description">${item.description}</span>
+//     </li>
+//     `;
+//   })
+//   .join('');
+//   itemList.innerHTML = htmlString;
+// }
+
 
 
 // function itemSearch() {
