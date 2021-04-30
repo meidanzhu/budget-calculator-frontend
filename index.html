@@ -2,53 +2,63 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>item Calculator</title>
+        <title>Favorite Drinks</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="index.css">
     </head>
-    <body>
-        <h1>Coffee Shop Bestsellers!</h1>
-        <p>Add your favorite drinks here!</p>
-        <div class="row">
-            <div class="column">
-                <h2>Here are all the Categories:</h2>
-                <ul id="category-list">
-                </ul>
+        <body>
+            <h1>Coffee Shop Bestsellers!</h1>
+            <p>Add your favorite drinks here!</p>
+
+            <button id="new-form-btn">Add a new item</button>
+
+
+            <div id="new-form-container" hidden="true">
+                <form id="item-form">
+                    <h3>Add New Item</h3>
+                    <label for="item-name">Name:</label>
+                    <input type="text" name="name" id="item-name"><br><br>
+                    <label for="item-description">Description:</label>
+                    <input type="text" name="description" id="item-description"><br><br>
+                    <label for="item-category">Category:</label>
+                    <select name="category" id="category">
+                        <option name="category_id" value="1">Espresso</option>
+                        <option name="category_id" value="2">Tea</option>
+                        <option name="category_id" value="3">Refresher</option>
+                    </select>
+                    <label for="item-price">Price:</label>
+                    <input type="number" name="price" id="item-price" min="0" step=".01"><br><br>
+                    <input type="submit" value="Create">
+                </form>
             </div>
-            <div class="column">
+
+
+            <div class="row">
+                <div class="column">
+                    <h2>Here are all the Categories:</h2>
+                    <ul id="category-list"></ul>
+                </div>
+            </div>
+
+            <div class="container">
                 <h2>Here are all Items:</h2>
-                <ul id="item-list">
-                </ul>
+                
+                <div id=”searchWrapper”>
+                    <input type=”text” class=”search-by-name” name=”searchBar” id="searchBar" placeholder="Search Drink">
+                    <button class=”search-btn” type=”submit”>Search</button>
+                </div>
+
+                <ul id="item-list"></ul>
             </div>
-        </div>
+            
 
-    <button id="new-form-btn">Add a new item</button>
-    
-    <div id="new-form-container" hidden="true">
-        <form id="item-form">
-            <h3>Add New Item</h3>
-            <label for="item-name">Name:</label>
-            <input type="text" name="name" id="item-name"><br><br>
-            <label for="item-description">Description:</label>
-            <input type="text" name="description" id="item-description"><br><br>
-            <label for="item-category">Category:</label>
-            <select name="category" id="category">
-                <option name="category_id" value="1">Espresso</option>
-                <option name="category_id" value="2">Tea</option>
-                <option name="category_id" value="3">Refresher</option>
-            </select>
-            <label for="item-price">Price:</label>
-            <input type="number" name="price" id="item-price" min="0" step=".01"><br><br>
-            <input type="submit" value="Create">
-        </form>
-    </div>
 
-        <script src="src/category.js" type="text/javascript"></script>
-        <script src="src/categoriesAdapter.js" type="text/javascript"></script>
-        <script src="src/item.js" type="text/javascript"></script>
-        <script src="src/itemsAdapter.js" type="text/javascript"></script>
-        <script src="index.js" type="text/javascript"></script>
+            <script src="src/category.js" type="text/javascript"></script>
+            <script src="src/categoriesAdapter.js" type="text/javascript"></script>
+            <script src="src/item.js" type="text/javascript"></script>
+            <script src="src/itemsAdapter.js" type="text/javascript"></script>
+            <script src="index.js" type="text/javascript"></script>
 
-</body>
+    </body>
 </html>
