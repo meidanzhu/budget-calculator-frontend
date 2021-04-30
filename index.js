@@ -71,9 +71,7 @@ const processSearch = () => {
 
 searchBar.addEventListener('keyup', (e) =>{
   const searchString = e.target.value.toLowerCase();
-
   const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
-  
   displayItems(filtered)
 })
 
