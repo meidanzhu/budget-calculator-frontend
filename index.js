@@ -3,7 +3,6 @@ const itemsAdapter = new ItemsAdapter
 const categoriesAdapter = new CategoriesAdapter
 const newFormButton = document.getElementById('new-form-btn')
 const itemList = document.getElementById('item-list')
-const searchBtn = document.getElementById('searchBtn')
 const searchBar = document.getElementById('searchBar')
 let filteredItems = []
 
