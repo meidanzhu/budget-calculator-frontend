@@ -69,27 +69,27 @@ const processSearch = () => {
 
 //OPTION 2
 
-// searchBtn.addEventListener('click', (e) =>{
-//   const searchString = e.target.value.toLowerCase();
+searchBar.addEventListener('keyup', (e) =>{
+  const searchString = e.target.value.toLowerCase();
 
-//   const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
+  const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
   
-//   displayItems(filtered)
-// })
+  displayItems(filtered)
+})
 
-// const displayItems = (items) => {
-//   const htmlString = items.map((item) => {
-//     return  `
-//     <li class='item'>
-//     $<span class="price">${item.price}</span>
-//     <strong class="name">${item.name}</strong>:
-//     <span class="description">${item.description}</span>
-//     </li>
-//     `;
-//   })
-//   .join('');
-//   itemList.innerHTML = htmlString;
-// }
+const displayItems = (items) => {
+  const htmlString = items.map((item) => {
+    return  `
+    <li class='item'>
+    $<span class="price">${item.price}</span>
+    <strong class="name">${item.name}</strong>:
+    <span class="description">${item.description}</span>
+    </li>
+    `;
+  })
+  .join('');
+  itemList.innerHTML = htmlString;
+}
 
 
 
