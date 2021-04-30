@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //google each synx along the way.
 
-searchBar.addEventListener('keyup', (e) =>{
+searchBtn.addEventListener('click', (e) =>{
   const searchString = e.target.value.toLowerCase();
 
   const filtered = filteredItems.filter(item => item.name.toLowerCase().includes(searchString));
